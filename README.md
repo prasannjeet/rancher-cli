@@ -1,6 +1,6 @@
-# rancher-compose-tools
+# rancher-cli
 
-Simple volume container that will contains rancher-compose and a few utilitary scripts to make jenkins pipelines easier.
+The Rancher Command Line Interface (CLI)is a unified tool to manage your Rancher server. With this tool, you can control your services, containers and hosts within a Rancher environment and automate them through scripts.
 
 ## First time usage
 
