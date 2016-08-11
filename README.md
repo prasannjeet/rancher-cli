@@ -13,3 +13,16 @@ docker run -ti -v $HOME/.rancher:/root/.rancher adopteunops/rancher-cli:latest -
 ```
 docker run -ti -v $HOME/.rancher:/root/.rancher/ adopteunops/rancher-cli:latest exec -ti CONTAINER_NAME bash
 ```
+
+## On api error
+
+Such as 
+```
+Error response from daemon: client is newer than server (client API version: 1.24, server API version: 1.22)
+```
+
+You can specify the docker version api as such
+
+```
+docker run -e DOCKER_API_VERSION=1.22 -ti -v $HOME/.rancher:/root/.rancher/ adopteunops/rancher-cli:latest exec -ti CONTAINER_NAME bash
+```
