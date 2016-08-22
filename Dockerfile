@@ -1,6 +1,6 @@
 FROM buildpack-deps:jessie-curl
 
-ENV RANCHER_CLI_VERSION 0.0.2
+ENV RANCHER_CLI_VERSION 0.1.0
 ENV RANCHER_CLI_HOME /usr/lib/rancher-cli
 
 RUN apt-get update \
