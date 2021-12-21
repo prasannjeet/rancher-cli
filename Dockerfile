@@ -17,4 +17,4 @@ RUN mkdir ${RANCHER_CLI_HOME} && /usr/local/bin/install-tools.sh
 VOLUME ${RANCHER_CLI_HOME}
 
 ENTRYPOINT ["/usr/lib/rancher-cli/rancher"]
-# CMD ["rancher config"]
+CMD ["--version"]

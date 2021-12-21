@@ -1,28 +1,31 @@
-# rancher-cli
+# Rancher Docker Image for 0.6.14
+As of December 2021, this image is updated with all the links.
 
-The Rancher Command Line Interface (CLI)is a unified tool to manage your Rancher server. With this tool, you can control your services, containers and hosts within a Rancher environment and automate them through scripts.
+Make sure that you have the following environment variables set in your computer:
+* RANCHER_URL
+* RANCHER_ACCESS_KEY
+* RANCHER_SECRET_KEY
 
-## First time usage
+You need to get these by logging in to Rancher.
 
-```
-docker run -ti -v $HOME/.rancher:/root/.rancher adopteunops/rancher-cli:latest --url http://YOUR_RANCHER_MASTER_URL config
-```
-
-## Exec Usage
-
-```
-docker run -ti -v $HOME/.rancher:/root/.rancher/ adopteunops/rancher-cli:latest exec -ti CONTAINER_NAME bash
-```
-
-## On api error
-
-Such as 
-```
-Error response from daemon: client is newer than server (client API version: 1.24, server API version: 1.22)
+Once done, add the following entry in your ~/.bash_profile:
+```bash
+alias rancher='docker run -ti -v /some/folder/in/your/computer:/root/.rancher -e RANCHER_URL=$RANCHER_URL -e RANCHER_ACCESS_KEY=$RANCHER_ACCESS_KEY -e RANCHER_SECRET_KEY=$RANCHER_SECRET_KEY rancher_local'
 ```
 
-You can specify the docker version api as such
+Replace `/some/folder/in/your/computer` with a folder in your computer.
 
+If all goes well, the first command must be the following:
+```bash
+rancher config
 ```
-docker run -e DOCKER_API_VERSION=1.22 -ti -v $HOME/.rancher:/root/.rancher/ adopteunops/rancher-cli:latest exec -ti CONTAINER_NAME bash
+
+It will ask you for the environments, etc. and it will be saved in the volume folder.
+
+After that you can run all the usual commands as it is, like:
+```bash
+rancher ps
+rancher logs -f container-name
 ```
+
+etc.
