@@ -8,6 +8,12 @@ Make sure that you have the following environment variables set in your computer
 
 You need to get these by logging in to Rancher.
 
+Now, you need to build the image once using the following command from inside the project:
+
+```bash
+docker build -t rancher_local .
+```
+
 Once done, add the following entry in your ~/.bash_profile:
 ```bash
 alias rancher='docker run -ti -v /some/folder/in/your/computer:/root/.rancher -e RANCHER_URL=$RANCHER_URL -e RANCHER_ACCESS_KEY=$RANCHER_ACCESS_KEY -e RANCHER_SECRET_KEY=$RANCHER_SECRET_KEY rancher_local'
