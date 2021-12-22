@@ -16,7 +16,7 @@ docker build -t rancher_local .
 
 Once done, add the following entry in your ~/.bash_profile:
 ```bash
-alias rancher='docker run -ti -v /some/folder/in/your/computer:/root/.rancher -e RANCHER_URL=$RANCHER_URL -e RANCHER_ACCESS_KEY=$RANCHER_ACCESS_KEY -e RANCHER_SECRET_KEY=$RANCHER_SECRET_KEY rancher_local'
+alias rancher='docker run -ti -v /some/folder/in/your/computer:/root/.rancher -e RANCHER_URL=$RANCHER_URL -e RANCHER_ACCESS_KEY=$RANCHER_ACCESS_KEY -e RANCHER_SECRET_KEY=$RANCHER_SECRET_KEY --rm rancher_local'
 ```
 
 Replace `/some/folder/in/your/computer` with a folder in your computer.
